@@ -99,10 +99,37 @@ def merge_lists(my_list, alices_list):
     # Eventually we'll want to return the merged list
     return merged_list
 
-
 my_list     = [3, 4, 6, 10, 11, 15]
 alices_list = [1, 5, 8, 12, 14, 19]
+# print(merge_lists(my_list, alices_list))
 
+# Another way to solve the same problem:
+# def merge_lists_(my_list, alices_list):
+       
+#     my_index = 0
+#     alice_index = 0
+#     merged_list = []
+    
+#     while True:
+
+#         if (my_index    == len(my_list) or
+#             alice_index == len(alices_list)): 
+
+#             merged_list.extend(my_list[my_index:])
+#             merged_list.extend(alices_list[alice_index:])
+
+#             return merged_list
+
+
+#         if my_list[my_index] < alices_list[alice_index]:
+#             merged_list.append(my_list[my_index])
+#             my_index +=1
+#         else:
+#             merged_list.append(alices_list[alice_index])
+#             alice_index += 1
+
+# my_list     = [3, 4, 6, 10, 11, 15]
+# alices_list = [1, 5, 8, 12, 14, 19]
 # print(merge_lists(my_list, alices_list))
 
 # 5
@@ -141,32 +168,3 @@ def is_first_come_first_served(take_out_orders, dine_in_orders, served_orders):
     if (dine_in_orders_index != len(dine_in_orders) or
         take_out_orders_index != len(take_out_orders)):
         return False
-
-
-    if served_orders == []:
-        return False
-
-    elif take_out_orders == [] or dine_in_orders == []:
-        if take_out_orders != served_orders or dine_in_orders != served orders:
-            return False
-
-    elif take_out_orders[0] == served_orders[0] or dine_in_orders[0] == served_orders[0]:
-
-    take_out_orders_index = 0
-    dine_in_orders_index = 0
-    served_orders_index = 0
-
-        while take_out_orders_index or dine_in_orders_index <= len(served_orders) - 1:
-
-            if take_out_orders[take_out_orders_index] == served_orders[served_orders_index]:
-            take_out_orders_index += 1
-            served_orders_index += 1
-
-            elif dine_in_orders[dine_in_orders_index] == served_orders[served_orders_index]:
-            dine_in_orders_index += 1
-            take_out_orders_index +1
-        
-            else:
-                return False
-        
-        return True 
