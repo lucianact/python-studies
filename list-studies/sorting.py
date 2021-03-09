@@ -1,3 +1,4 @@
+# 1
 # Bubble Sort:
 # takes an unsorted list and orders it in ascending values
 # lowest number will be in the beginning of the list
@@ -25,4 +26,17 @@ def bubble_sort(lst):
 
 lst = [6, 4, 8, 3, 2, 5, 7, 8, 9]
 print(bubble_sort(lst))
+
+# # 2
+# # Merge Sort O(n log n):
+# # divide and conquer
+# # reducing lists to 0-1 list items
+# # then recomnining them
+
+# def merge_sort(lst):
+#     if len(lst) > 1:
+#         mid = len(lst) // 2
+        
+
+
 
