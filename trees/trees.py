@@ -136,6 +136,23 @@ class BinarySearchNode():
 
 # _________________________________________________________________________
 
+# Advanced Ideas:
+# Moving up -> some trees point up
+class ReverseNode():
+    """Node that points to its parents."""
+    def __init__(self, parent):
+        self.parent = parent 
+
+# some point both ways:
+# cost of more memory -> you double the size of your tree
+class BidirectionalNode():
+    """Node that is bidirectional."""
+    def __init__(self, parent, children):
+        self.parent = parent 
+        self.children = children 
+
+# you can store this in databases (no SQL databases)
+
 
 
 
