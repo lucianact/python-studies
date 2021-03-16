@@ -48,6 +48,25 @@ class Node(object):
                 return current
             
             to_visit.extend(current.children)
+    
+    # what if we want to find the highest-ranking data? 
+
+    # Breadth First Search
+    # (queue behavior -> first in, first out)
+    def finding_the_highest_ranking_node_(self, data):
+        """Return the highest-raking node object with this data"""
+        
+        to_visit = [self]
+
+        # while there are still things to be visited
+        while to_visit:
+            current = to_visit.pop(0)
+            
+            if current.data == data:
+                return current
+            
+            to_visit.extend(current.children)
+
 
 
     # def __repr__(self):
