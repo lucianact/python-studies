@@ -53,7 +53,7 @@ class Node(object):
 
     # Breadth First Search
     # (queue behavior -> first in, first out)
-    def finding_the_highest_ranking_node_(self, data):
+    def finding_the_highest_ranking_node(self, data):
         """Return the highest-raking node object with this data"""
         
         to_visit = [self]
@@ -66,12 +66,31 @@ class Node(object):
                 return current
             
             to_visit.extend(current.children)
-
-
-
+    
     # def __repr__(self):
     #     """Reader-friendly representation."""
     #     return f"Node is {self.data}"
+
+class Tree(object):
+    """A tree."""
+
+    def __init__(self, root):
+        self.root = root 
+    
+    def find_in_tree(self, data):
+        return self.root.finding_a_node(data)
+
+    # or
+
+    # def find_in_tree(self, data):
+    #     return self.root.finding_the_highest_ranking_node(data)
+    
+    # def __repr__(self):
+    #     """Reader-friendly representation."""
+    #     return f"Tree node is {self.root}"
+    
+
+
     
 # just to practice, 
 # let's start by creating a node:
