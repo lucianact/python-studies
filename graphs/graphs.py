@@ -27,3 +27,24 @@
 # -> only two people can carpool together at a time
 # -> how can we match the maximum number os pairs of riders?
 
+# represeing a graph with OOP:
+class PersonNode():
+    """Node in a graph, representing a person."""
+
+    def __init__(self, name, adjacent=None):
+        """Create a person node with friends adjacent."""
+
+        # you can't have the same adjacent node more than once
+        # it makes no sense 
+        if adjacent is None:
+            adjacent = set()
+        
+        assert isinstance(adjacent, set), \
+            "adjacent must be a set!"
+        
+        self.name = name
+        self.adjacent = adjacent
+    
+    # def __repr__(self):
+    #     """Debugging-friendly representation."""
+    #     return f'Person node {self.name}'
