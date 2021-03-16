@@ -88,7 +88,16 @@ class Tree(object):
     # def __repr__(self):
     #     """Reader-friendly representation."""
     #     return f"Tree node is {self.root}"
-    
+
+
+# just to practice, 
+# let's start by creating a node:
+# student = Node("Luciana", [])
+# student.children.append("Python")
+# student.children.append("JavaScript")
+# student.children prints -> Python, JavaScript
+
+# ________________________________________________________________________
 
 # Binary Search Tree
 # each node has a left of a right child  
@@ -125,13 +134,9 @@ class BinarySearchNode():
     #     """Reader-friendly representation."""
     #     return f"Binary node {self.data}"
 
+# _________________________________________________________________________
 
-# just to practice, 
-# let's start by creating a node:
-# student = Node("Luciana", [])
-# student.children.append("Python")
-# student.children.append("JavaScript")
-# student.children prints -> Python, JavaScript
+
 
 
 
