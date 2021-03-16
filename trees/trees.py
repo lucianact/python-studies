@@ -90,15 +90,48 @@ class Tree(object):
     #     return f"Tree node is {self.root}"
     
 
+# Binary Search Tree
+# each node has a left of a right child  
+# nodes can only have maximum of 2 childrens
+# Constraints:
+# we need to have a balanced tree 
+class BinarySearchNode():
+    """Binary tree node."""
 
+    def __init__(self, data, left=None, right=None):
+        self.data = data
+        self.left = left
+        self.right = right
     
+    def find(self, sought):
+        """Return node with this data."""
+
+        current = self
+
+        while current:
+            print("checking", current.data)
+
+            # every choice we make reduces # options by half
+            # so the runtime of BTS is O(log n) -> base 2
+
+            if current.data == sought:
+                return current
+            elif sought < current.data:
+                current = current.left
+            elif sought > current.data:
+                current =  current.right  
+
+    # def __repr__(self):
+    #     """Reader-friendly representation."""
+    #     return f"Binary node {self.data}"
+
+
 # just to practice, 
 # let's start by creating a node:
 # student = Node("Luciana", [])
 # student.children.append("Python")
 # student.children.append("JavaScript")
 # student.children prints -> Python, JavaScript
-
 
 
 
