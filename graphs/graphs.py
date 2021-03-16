@@ -48,3 +48,33 @@ class PersonNode():
     # def __repr__(self):
     #     """Debugging-friendly representation."""
     #     return f'Person node {self.name}'
+
+class FriendGraph():
+    """Graph holding people and their friendships."""
+
+    def __init__(self):
+        """Create an empty graph."""
+        self.nodes = set()
+
+    def add_person(self, person):
+        """Add a person to our graph."""
+        self.nodes.add(person)
+    
+    def set_friends(self, person1, person2):
+        """Set two people as friends."""
+        person1.adjacent.add(person2)
+        person2.adjacent.add(person1)
+
+# step 1:
+# create instances of the node class:
+harry = PersonNode("Harry")
+hermione = PersonNode("Hermione")
+# step 2:
+# create a instance of the graph class:
+friends = FriendGraph()
+# step 3:
+# add nodes to the graph
+friends.add_person([harry, hermione])
+#step 4:
+# create relationshop between nodes
+friends.set_friends(harry, hermione)
