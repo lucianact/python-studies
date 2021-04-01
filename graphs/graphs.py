@@ -1,3 +1,25 @@
+class Queue(object):
+    """A simple queue, implemented using a list."""
+
+    def __init__(self):
+        self._data = []
+
+    def enqueue(self, item):
+        """Add to end of queue."""
+        self._data.append(item)
+
+    def dequeue(self):
+        """Remove from front of queue."""
+        return self._data.pop(0)
+
+    def peek(self):
+        """Show first item in queue."""
+        return self._data[0]
+
+    def is_empty(self):
+        """Is queue empty?"""
+        return not self._data
+
 # Graphs:
 # are like tree, excep they contain loops (cycles)
 # relantionships can be direct or undirect 
@@ -64,6 +86,25 @@ class FriendGraph():
         """Set two people as friends."""
         person1.adjacent.add(person2)
         person2.adjacent.add(person1)
+    
+    def are_connected(self, person1, person2):
+        """Are two people connected?"""
+        
+        # Breath-first search. why?
+
+        possible_nodes = Queue()
+        seen = set()
+        possible_nodes.enqueue(person1)
+        seen.add(person1) 
+
+        while not possible_nodes.is_empty():
+            person = possible_nodes.dequeue()
+            print("checking", person)
+            if person is person2:
+                return True 
+            else:
+                
+
 
 # step 1:
 # create instances of the node class:
@@ -78,3 +119,9 @@ friends.add_person([harry, hermione])
 #step 4:
 # create relationshop between nodes
 friends.set_friends(harry, hermione)
+
+# Let's talking about checking if two nodes are adjancents
+# one way of doing this is throught Breath First Search algo
+# in case of a graph, BFS will first check all the immediate connections 
+# and then gradually go to the next "levels"
+
