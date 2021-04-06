@@ -63,6 +63,12 @@ say_hi.head = first_node
 first_node.next = second_node
 second_node.next = third_node
 
+# ??? why this doesn't work ????
+# third_node = Node("!")
+# second_node = Node("world", third_node)
+# first_node = Node("hello", second_node)
+# say_hi = SinglyLinkedList(first_node)
+
 def print_linked_list_function(head_node): 
     current_node = head_node
     while current_node:
@@ -120,12 +126,6 @@ def append_node_function(first_node, new_node):
         return current_node.data
 # print(append_node_function(first_node, "!"))
 print_linked_list_function(first_node) # why?
-
-# ??? why this doesn't work ????
-# third_node = Node("!")
-# second_node = Node("world", third_node)
-# first_node = Node("hello", second_node)
-# say_hi = SinglyLinkedList(first_node)
 
 # class NoTailLinkedList(object):
 #     """Linked List using head only."""
