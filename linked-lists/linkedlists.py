@@ -31,6 +31,21 @@ class SinglyLinkedList(object):
             lllength += 1 
             current_node = current_node.next   
         return lllength
+    
+    def prepend_node_method(self, new_node):
+        new_node = Node(new_node)
+        head_node = new_node
+        head_node.next = self.head 
+        return head_node.data
+    
+    def append_node_method(self, new_node):
+        new_node = Node(new_node)
+        current_node = self.head
+        while current_node:
+            current_node = current_node.next
+        current_node = new_node
+        return current_node.data
+
 
 class Node(object):
     def __init__(self, data, next=None):
@@ -74,7 +89,8 @@ def reassign_node_value_function(first_node, current_value, new_value):
                 return current_node.data
             current_node = current_node.next 
 print(reassign_node_value_function(first_node, "world", "universe"))
-print_linked_list_function(first_node) # what happens now if we print this function? 
+# what happens now if we print this following function? 
+print_linked_list_function(first_node) 
 
 def find_the_length_function(first_node):
         current_node = first_node
@@ -84,6 +100,26 @@ def find_the_length_function(first_node):
             current_node = current_node.next
         return lllength
 print(find_the_length_function(first_node))
+
+def prepend_node_function(first_node, new_node):
+        new_node = Node(new_node)
+        head_node = new_node
+        head_node.next = first_node
+        return head_node.data
+print(prepend_node_function(first_node, "Say:"))
+# what happens now if we print these following functions? 
+print_linked_list_function(first_node)
+print(find_the_length_function(first_node)) # why?
+
+def append_node_function(first_node, new_node):
+        new_node = Node(new_node)
+        current_node = first_node
+        while current_node:
+            current_node = current_node.next
+        current_node = new_node
+        return current_node.data
+# print(append_node_function(first_node, "!"))
+print_linked_list_function(first_node) # why?
 
 # ??? why this doesn't work ????
 # third_node = Node("!")
