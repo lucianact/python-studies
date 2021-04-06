@@ -23,7 +23,14 @@ class SinglyLinkedList(object):
                 current_node.data = new_value
                 return current_node.data
             current_node = current_node.next    
-
+    
+    def find_the_length_method(self):
+        current_node = self.head
+        lllength = 0 
+        while current_node:
+            lllength += 1 
+            current_node = current_node.next   
+        return lllength
 
 class Node(object):
     def __init__(self, data, next=None):
@@ -68,6 +75,15 @@ def reassign_node_value_function(first_node, current_value, new_value):
             current_node = current_node.next 
 print(reassign_node_value_function(first_node, "world", "universe"))
 print_linked_list_function(first_node) # what happens now if we print this function? 
+
+def find_the_length_function(first_node):
+        current_node = first_node
+        lllength = 0  
+        while current_node:
+            lllength += 1 
+            current_node = current_node.next
+        return lllength
+print(find_the_length_function(first_node))
 
 # ??? why this doesn't work ????
 # third_node = Node("!")
