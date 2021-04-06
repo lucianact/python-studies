@@ -1,6 +1,29 @@
 class SinglyLinkedList(object):
     def __init__(self, head=None):
-        self.head = None 
+        self.head = None
+    
+    def print_linked_list_method(self): 
+        current_node = self.head 
+        while current_node:
+            print(current_node.data)
+            current_node = current_node.next 
+    
+    def find_value_method(self, value):
+        current_node = self.head
+        while current_node:
+            if current_node.data == value:
+                # return f'{current_node} is {value}'
+                return True 
+            current_node = current_node.next    
+    
+    def reassign_node_value_method(self, current_value, new_value):
+        current_node = self.head
+        while current_node:
+            if current_node.data == current_value:
+                current_node.data = new_value
+                return current_node.data
+            current_node = current_node.next    
+
 
 class Node(object):
     def __init__(self, data, next=None):
@@ -17,6 +40,34 @@ third_node = Node("!")
 say_hi.head = first_node
 first_node.next = second_node
 second_node.next = third_node
+
+def print_linked_list_function(head_node): 
+    current_node = head_node
+    while current_node:
+        print(current_node.data)
+        current_node = current_node.next 
+print_linked_list_function(first_node)
+# you don't need to necessarily print the whole list 
+# you can pass the second_node as an argument, for example
+
+def find_value_function(head_node, value):
+    current_node = head_node
+    while current_node:
+        if current_node.data == value:
+            # return f'{current_node} is {value}'
+            return True 
+        current_node = current_node.next    
+print(find_value_function(first_node, "world"))
+
+def reassign_node_value_function(first_node, current_value, new_value):
+        current_node = first_node
+        while current_node:
+            if current_node.data == current_value:
+                current_node.data = new_value
+                return current_node.data
+            current_node = current_node.next 
+print(reassign_node_value_function(first_node, "world", "universe"))
+print_linked_list_function(first_node) # what happens now if we print this function? 
 
 # ??? why this doesn't work ????
 # third_node = Node("!")
