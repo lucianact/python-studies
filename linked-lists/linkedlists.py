@@ -1,12 +1,28 @@
-# class Node(object):
-#     """Node in a Linked List."""
+class SinglyLinkedList(object):
+    def __init__(self, head=None):
+        self.head = None 
 
-#     def __init__(self, data):
-#         self.data = data
-#         self.next = None
+class Node(object):
+    def __init__(self, data, next=None):
+        self.data = data
+        self.next = None
 
 #     def __repr__(self):
-#         return f"Node data: {self.data}, next node: {self.next.data}" if self.next else None
+#         return f"Node is {self.data}, next node is {self.next.data}" if self.next else None
+
+say_hi = SinglyLinkedList()
+first_node = Node("hello")
+second_node = Node("world")
+third_node = Node("!")
+say_hi.head = first_node
+first_node.next = second_node
+second_node.next = third_node
+
+# ??? why this doesn't work ????
+# third_node = Node("!")
+# second_node = Node("world", third_node)
+# first_node = Node("hello", second_node)
+# say_hi = SinglyLinkedList(first_node)
 
 # class NoTailLinkedList(object):
 #     """Linked List using head only."""
