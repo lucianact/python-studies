@@ -2,6 +2,20 @@ class SinglyLinkedList(object):
     def __init__(self, head=None):
         self.head = None
     
+     def prepend_node_method(self, new_node):
+        new_node = Node(new_node)
+        head_node = new_node
+        head_node.next = self.head 
+        return head_node.data
+    
+    def append_node_method(self, new_node):
+        new_node = Node(new_node)
+        current_node = self.head
+        while current_node:
+            current_node = current_node.next
+        current_node = new_node
+        return current_node.data
+    
     def print_linked_list_method(self): 
         current_node = self.head 
         while current_node:
@@ -32,19 +46,7 @@ class SinglyLinkedList(object):
             current_node = current_node.next   
         return lllength
     
-    def prepend_node_method(self, new_node):
-        new_node = Node(new_node)
-        head_node = new_node
-        head_node.next = self.head 
-        return head_node.data
-    
-    def append_node_method(self, new_node):
-        new_node = Node(new_node)
-        current_node = self.head
-        while current_node:
-            current_node = current_node.next
-        current_node = new_node
-        return current_node.data
+  
 
 
 class Node(object):
