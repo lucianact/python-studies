@@ -2,7 +2,7 @@ class SinglyLinkedList(object):
     def __init__(self, head=None):
         self.head = None
     
-     def prepend_node_method(self, new_node):
+    def prepend_node_method(self, new_node):
         new_node = Node(new_node)
         head_node = new_node
         head_node.next = self.head 
@@ -46,7 +46,15 @@ class SinglyLinkedList(object):
             current_node = current_node.next   
         return lllength
     
-  
+    # def insert_a_node_method(self, node_value, new_node):
+    #     new_node = Node(new_node)
+    #     current_node = self.head
+    #     while current_node:
+    #         if current_node.data == node_value:
+    #             current_node.next = new_node
+    #             new_node.next = current_node.next.next
+    #             return f'{current_node.next}, {new_node.next}'
+    #         current_node = current_node.next  
 
 
 class Node(object):
@@ -87,7 +95,7 @@ def find_value_function(head_node, value):
             # return f'{current_node} is {value}'
             return True 
         current_node = current_node.next    
-print(find_value_function(first_node, "world"))
+# print(find_value_function(first_node, "world"))
 
 def reassign_node_value_function(first_node, current_value, new_value):
         current_node = first_node
@@ -98,7 +106,7 @@ def reassign_node_value_function(first_node, current_value, new_value):
             current_node = current_node.next 
 print(reassign_node_value_function(first_node, "world", "universe"))
 # what happens now if we print this following function? 
-print_linked_list_function(first_node) 
+# print_linked_list_function(first_node) 
 
 def find_the_length_function(first_node):
         current_node = first_node
@@ -107,17 +115,17 @@ def find_the_length_function(first_node):
             lllength += 1 
             current_node = current_node.next
         return lllength
-print(find_the_length_function(first_node))
+# print(find_the_length_function(first_node))
 
 def prepend_node_function(first_node, new_node):
         new_node = Node(new_node)
         head_node = new_node
         head_node.next = first_node
         return head_node.data
-print(prepend_node_function(first_node, "Say:"))
+# print(prepend_node_function(first_node, "Say:"))
 # what happens now if we print these following functions? 
-print_linked_list_function(first_node)
-print(find_the_length_function(first_node)) # why?
+# print_linked_list_function(first_node)
+# print(find_the_length_function(first_node)) # why?
 
 def append_node_function(first_node, new_node):
         new_node = Node(new_node)
@@ -127,7 +135,18 @@ def append_node_function(first_node, new_node):
         current_node = new_node
         return current_node.data
 # print(append_node_function(first_node, "!"))
-print_linked_list_function(first_node) # why?
+# print_linked_list_function(first_node) # why?
+
+def insert_a_node_method(first_node, node_value, new_node):
+        new_node = Node(new_node)
+        current_node = first_node
+        while current_node:
+            if current_node.data == node_value:
+                current_node.next = new_node
+                new_node.next = current_node
+                return f'{current_node.next.data}, {new_node.next.data}'
+            current_node = current_node.next  
+print(insert_a_node_method(first_node, "universe" , "of love"))
 
 # class NoTailLinkedList(object):
 #     """Linked List using head only."""
