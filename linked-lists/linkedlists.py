@@ -53,8 +53,16 @@ class SinglyLinkedList(object):
             if current_node.data == target_node_value:
                 new_node.next = current_node.next
                 current_node.next = new_node
-            current_node = current_node.next  
-
+            current_node = current_node.next
+    
+    # def insert_a_node_before_target_node_method(self, target_node_value, new_node):
+    #     new_node = Node(new_node)
+    #     current_node = self.head
+    #     while current_node:
+    #         if current_node.data == target_node_value:
+    #             new_node.next = current_node
+    #             current_node.next = new_node
+    #         current_node = current_node.next  
 
 class Node(object):
     def __init__(self, data, next=None):
@@ -83,7 +91,7 @@ def print_linked_list_function(head_node):
     while current_node:
         print(current_node.data)
         current_node = current_node.next 
-# print_linked_list_function(first_node)
+print_linked_list_function(first_node)
 # you don't need to necessarily print the whole list 
 # you can pass the second_node as an argument, for example
 
@@ -97,56 +105,69 @@ def find_value_function(head_node, value):
 # print(find_value_function(first_node, "world"))
 
 def reassign_node_value_function(first_node, current_value, new_value):
-        current_node = first_node
-        while current_node:
-            if current_node.data == current_value:
-                current_node.data = new_value
-                return current_node.data
-            current_node = current_node.next 
+    current_node = first_node
+    while current_node:
+        if current_node.data == current_value:
+            current_node.data = new_value
+            return current_node.data
+        current_node = current_node.next 
 # print(reassign_node_value_function(first_node, "world", "universe"))
 # what happens now if we print this following function? 
 # print_linked_list_function(first_node) 
 
 def find_the_length_function(first_node):
-        current_node = first_node
-        lllength = 0  
-        while current_node:
-            lllength += 1 
-            current_node = current_node.next
-        return lllength
+    current_node = first_node
+    lllength = 0  
+    while current_node:
+        lllength += 1 
+        current_node = current_node.next
+    return lllength
 # print(find_the_length_function(first_node))
 
 def prepend_node_function(first_node, new_node):
-        new_node = Node(new_node)
-        head_node = new_node
-        head_node.next = first_node
-        return head_node.data
+    new_node = Node(new_node)
+    head_node = new_node
+    head_node.next = first_node
+    return head_node.data
 # print(prepend_node_function(first_node, "Say:"))
 # what happens now if we print these following functions? 
 # print_linked_list_function(first_node)
 # print(find_the_length_function(first_node)) # why?
 
 def append_node_function(first_node, new_node):
-        new_node = Node(new_node)
-        current_node = first_node
-        while current_node:
-            current_node = current_node.next
-        current_node = new_node
-        return current_node.data
+    new_node = Node(new_node)
+    current_node = first_node
+    while current_node:
+        current_node = current_node.next
+    current_node = new_node
+    return current_node.data
 # print(append_node_function(first_node, "!"))
 # print_linked_list_function(first_node) # why?
 
 def insert_a_node_after_target_node_function(first_node, target_node_value, new_node):
-        new_node = Node(new_node)
-        current_node = first_node
-        while current_node:
-            if current_node.data == target_node_value:
-                new_node.next = current_node.next
-                current_node.next = new_node
-            current_node = current_node.next  
-            # return f'{current_node.next.data}' # what's happening? 
+    new_node = Node(new_node)
+    current_node = first_node
+    while current_node:
+        if current_node.data == target_node_value:
+            new_node.next = current_node.next
+            current_node.next = new_node
+        current_node = current_node.next  
+        # return f'{current_node.next.data}' # what's happening? 
 # insert_a_node_before_target_node_function(first_node, "world" , "of love")
 # print_linked_list_function(first_node)
+
+# def insert_a_node_before_target_node_function(first_node, target_node_value, new_node):
+#     new_node = Node(new_node)
+#     current_node = first_node
+#     while current_node:
+#         if current_node.data == target_node_value:
+#             new_node.next = current_node
+#             current_node.next = new_node
+#             break
+#         current_node = current_node.next  
+# insert_a_node_before_target_node_function(first_node, "world", "beautiful")
+# print_linked_list_function(first_node)
+
 
 # class NoTailLinkedList(object):
 #     """Linked List using head only."""
