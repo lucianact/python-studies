@@ -55,15 +55,15 @@ class SinglyLinkedList(object):
                 current_node.next = new_node
             current_node = current_node.next
     
-    # def insert_a_node_before_target_node_method(self, target_node_value, new_node):
-    #     new_node = Node(new_node)
-    #     current_node = self.head
-    #     while current_node:
-    #         if current_node.data == target_node_value:
-    #             new_node.next = current_node
-    #             current_node.next = new_node
-    #         current_node = current_node.next  
-    # Reminder that something is wrong here!
+    def insert_a_node_before(self, target_node_value, new_node):
+        new_node = Node(new_node)
+        current_node = self.head
+        while current_node.next:
+            if current_node.next.data == target_node_value:
+                new_node.next = current_node.next
+                current_node.next = new_node
+                return
+            current_node = current_node.next  
 
     def remove_a_node(self, to_be_removed):
         
@@ -177,17 +177,17 @@ def insert_a_node_after_target_node_function(first_node, target_node_value, new_
 # insert_a_node_before_target_node_function(first_node, "world" , "of love")
 # print_linked_list_function(first_node)
 
-# def insert_a_node_before_target_node_function(first_node, target_node_value, new_node):
-#     new_node = Node(new_node)
-#     current_node = first_node
-#     while current_node:
-#         if current_node.data == target_node_value:
-#             new_node.next = current_node
-#             current_node.next = new_node
-#             break
-#         current_node = current_node.next  
-# insert_a_node_before_target_node_function(first_node, "world", "beautiful")
-# print_linked_list_function(first_node)
+def insert_a_node_before(first_node, target_node_value, new_node):
+    new_node = Node(new_node)
+    current_node = first_node
+    while current_node.next:
+        if current_node.next.data == target_node_value:
+            new_node.next = current_node.next
+            current_node.next = new_node
+            return
+        current_node = current_node.next  
+insert_a_node_before(first_node, "world", "beautiful")
+print_linked_list_function(first_node)
 
 
 # class NoTailLinkedList(object):
