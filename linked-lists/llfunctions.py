@@ -41,10 +41,8 @@ def reassign_node(head_node, current_value, new_value):
     while current_node:
         if current_node.data == current_value:
             current_node.data = new_value
-            return current_node.data
         current_node = current_node.next 
 print(reassign_node(first_node, "world", "universe"))
-# what happens now if we print this following function? 
 print_linked_list(first_node) 
 
 def find_the_length(head_node):
@@ -69,33 +67,31 @@ print(find_the_length(first_node)) # why?
 def append_node(head_node, new_node):
     new_node = Node(new_node)
     current_node = first_node
-    while current_node:
+    while current_node.next:
         current_node = current_node.next
-    current_node = new_node
-    return current_node.data
+    current_node.next = new_node
 print(append_node(first_node, "!"))
-print_linked_list(first_node) # why?
+print_linked_list(first_node) 
 
-def insert_a_node_after_target_node(head_node, target_node_value, new_node):
+def insert_a_node_after_target_node(head_node, target_node, new_node):
     new_node = Node(new_node)
     current_node = first_node
     while current_node:
-        if current_node.data == target_node_value:
+        if current_node.data == target_node:
             new_node.next = current_node.next
             current_node.next = new_node
         current_node = current_node.next  
-insert_a_node_after_target_node(first_node, "world" , "of love")
+insert_a_node_after_target_node(first_node, "universe" , "of love")
 print_linked_list(first_node)
 
-def insert_a_node_before_target(head_node, target_node_value, new_node):
+def insert_a_node_before_target(head_node, target_node, new_node):
     new_node = Node(new_node)
     current_node = first_node
     while current_node.next:
-        if current_node.next.data == target_node_value:
+        if current_node.next.data == target_node:
             new_node.next = current_node.next
             current_node.next = new_node
             return
         current_node = current_node.next  
-insert_a_node_before_target(first_node, "world", "beautiful")
+insert_a_node_before_target(first_node, "universe", "beautiful")
 print_linked_list(first_node)
-
