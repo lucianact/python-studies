@@ -46,15 +46,14 @@ class SinglyLinkedList(object):
             current_node = current_node.next   
         return lllength
     
-    # def insert_a_node_method(self, node_value, new_node):
-    #     new_node = Node(new_node)
-    #     current_node = self.head
-    #     while current_node:
-    #         if current_node.data == node_value:
-    #             current_node.next = new_node
-    #             new_node.next = current_node.next.next
-    #             return f'{current_node.next}, {new_node.next}'
-    #         current_node = current_node.next  
+    def insert_a_node_before_target_node_method(self, target_node_value, new_node):
+        new_node = Node(new_node)
+        current_node = self.head
+        while current_node:
+            if current_node.data == target_node_value:
+                new_node.next = current_node.next
+                current_node.next = new_node
+            current_node = current_node.next  
 
 
 class Node(object):
@@ -84,7 +83,7 @@ def print_linked_list_function(head_node):
     while current_node:
         print(current_node.data)
         current_node = current_node.next 
-print_linked_list_function(first_node)
+# print_linked_list_function(first_node)
 # you don't need to necessarily print the whole list 
 # you can pass the second_node as an argument, for example
 
@@ -104,7 +103,7 @@ def reassign_node_value_function(first_node, current_value, new_value):
                 current_node.data = new_value
                 return current_node.data
             current_node = current_node.next 
-print(reassign_node_value_function(first_node, "world", "universe"))
+# print(reassign_node_value_function(first_node, "world", "universe"))
 # what happens now if we print this following function? 
 # print_linked_list_function(first_node) 
 
@@ -137,16 +136,17 @@ def append_node_function(first_node, new_node):
 # print(append_node_function(first_node, "!"))
 # print_linked_list_function(first_node) # why?
 
-def insert_a_node_method(first_node, node_value, new_node):
+def insert_a_node_before_target_node_function(first_node, target_node_value, new_node):
         new_node = Node(new_node)
         current_node = first_node
         while current_node:
-            if current_node.data == node_value:
+            if current_node.data == target_node_value:
+                new_node.next = current_node.next
                 current_node.next = new_node
-                new_node.next = current_node
-                return f'{current_node.next.data}, {new_node.next.data}'
             current_node = current_node.next  
-print(insert_a_node_method(first_node, "universe" , "of love"))
+            # return f'{current_node.next.data}' # what's happening? 
+insert_a_node_before_target_node_function(first_node, "world" , "of love")
+print_linked_list_function(first_node)
 
 # class NoTailLinkedList(object):
 #     """Linked List using head only."""
