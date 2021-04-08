@@ -2,50 +2,96 @@ class SinglyLinkedList(object):
     def __init__(self, head=None):
         self.head = None
     
-    def prepend_node_method(self, new_node):
+    def prepend_node(self, new_node):
+        """Prepend a new node.""" 
+
+        # create a new node:
         new_node = Node(new_node)
-        head_node = new_node
-        head_node.next = self.head 
-        return head_node.data
+
+        # check if list empty:
+        if self.head is None:
+            new_node = self.head
+
+        # if list is not empty:
+        new_node.next = self.head
+        self.head = new_node
     
-    def append_node_method(self, new_node):
+    def append_node(self, new_node):
+        """Append a new node."""
+        
+        # create a new node:
         new_node = Node(new_node)
+        
+        # check if linked list is empty:
+        if self.head is None:
+            self.head = new_node
+        
         current_node = self.head
         while current_node:
             current_node = current_node.next
         current_node = new_node
+            
         return current_node.data
     
-    def print_linked_list_method(self): 
-        current_node = self.head 
-        while current_node:
-            print(current_node.data)
-            current_node = current_node.next 
-    
-    def find_value_method(self, value):
+    def print_linked_list(self): 
+        """Print linked list."""
+        
+        # if linked list is empty:
+        if self.head is None:
+            raise Exception("List is empty!")
+        
         current_node = self.head
         while current_node:
-            if current_node.data == value:
-                # return f'{current_node} is {value}'
-                return True 
-            current_node = current_node.next    
+            print(current_node.data)
+        current_node = current_node.next
     
-    def reassign_node_value_method(self, current_value, new_value):
+    def find_value(self, node_value):
+        """Find specific value in linked list."""
+    
+        # if liked list is empty
+        if self.head is None:
+            raise Exception ("List is empty!")
+            
+        current_node = self.head
+        while current_node:
+            if current_node.data == node_value:
+                return True 
+            current_node = current_node.next
+            
+        return False
+    
+    def find_length(self):
+        """Find out linked list lenght."""
+        
+        # check if linked list is empty:
+        if self.head is None:
+            raise Exception("List is empty!")
+        
+        current_node = self.head
+        lllength = 0  
+        while current_node:
+            lllength += 1 
+        current_node = current_node.next
+        
+        return lllength
+    
+    def reassign_node_value(self, current_value, new_value):
+        """Reassign new value to specific node."""
+        
+        # check if list is empty:
+        if self.head is None:
+            raise Exception("List is empty!")
+        
         current_node = self.head
         while current_node:
             if current_node.data == current_value:
                 current_node.data = new_value
                 return current_node.data
-            current_node = current_node.next    
+            current_node = current_node.next 
+        
+        return "Value could not be found"
     
-    def find_the_length_method(self):
-        current_node = self.head
-        lllength = 0 
-        while current_node:
-            lllength += 1 
-            current_node = current_node.next   
-        return lllength
-    
+  
     def insert_a_node_after_target_node_method(self, target_node_value, new_node):
         new_node = Node(new_node)
         current_node = self.head
@@ -190,36 +236,21 @@ insert_a_node_before(first_node, "world", "beautiful")
 print_linked_list_function(first_node)
 
 
-# class NoTailLinkedList(object):
-#     """Linked List using head only."""
-    
-#     def __init__(self):
-#         self.head = None
+
     
 #     def append_node(self, data):
 #         """Append node with data to end of list."""
-
-#         # creating a node inside the method 
+#       
 #         new_node = Node(data)
-
-#         # should the new node be the head of our ll?
+# 
 #         if self.head is None:
 #             self.head = new_node
-#         # the last node of the ll will always point to none
-#         else:
-#             current_node = self.head
-#             while current_node.next is not None:
-#                 current_node = current_node.next
-#             current_node.next = new_node
-    
-#     def print_list(self):
-#         """Print all items in the list."""
-
+# 
 #         current_node = self.head
-
-#         while current_node is not None:
-#             print(current_node.data)
-#             current_node = current_node.next 
+#         while current_node.next is not None:
+#             current_node = current_node.next
+#         current_node.next = new_node
+    
 
 
 # class LinkedList(object):
@@ -243,25 +274,6 @@ print_linked_list_function(first_node)
 #         # while the ll is empty:
 #         self.tail = new_node
     
-#     def print_list(self):
-#         """Print all items in the list."""
-
-#         current = self.head
-
-#         while current is not None:
-#             print(current.data)
-#             current = current.next
-
-#     def find(self, data):
-#         """Does this data exist in our list?"""
-
-#         current = self.head
-
-#         while current is not None:
-#             if current.data == data:
-#                 return True
-#             current = current.next
-#         return False
     
 #     def remove(self, value):
 #         """Remove node with given value"""
