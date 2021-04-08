@@ -63,6 +63,27 @@ class SinglyLinkedList(object):
     #             new_node.next = current_node
     #             current_node.next = new_node
     #         current_node = current_node.next  
+    # Reminder that something is wrong here!
+
+    def remove_a_node(self, to_be_removed):
+        
+        # check if we have an empty linked list:
+        if self.head is None:
+            raise Exception("List is empty!")
+
+        # check if the node to be removed
+        # is the head node:
+        if self.head.data == to_be_removed:
+            self.head = self.head.next 
+        
+        # otherwise:
+        current_node = self.head 
+        while current_node.next:
+            if current_node.next.data == to_be_removed:
+                current_node.next = current_node.next.next 
+            current_node = current_node.next 
+            
+
 
 class Node(object):
     def __init__(self, data, next=None):
