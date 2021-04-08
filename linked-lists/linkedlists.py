@@ -1,7 +1,10 @@
 class SinglyLinkedList(object):
+    """A singly linked list."""
+
     def __init__(self, head=None):
         self.head = None
     
+
     def prepend_node(self, new_node):
         """Prepend a new node.""" 
 
@@ -12,9 +15,9 @@ class SinglyLinkedList(object):
         if self.head is None:
             new_node = self.head
 
-        # if list is not empty:
         new_node.next = self.head
         self.head = new_node
+
     
     def append_node(self, new_node):
         """Append a new node."""
@@ -22,33 +25,33 @@ class SinglyLinkedList(object):
         # create a new node:
         new_node = Node(new_node)
         
-        # check if linked list is empty:
+        # check if list is empty:
         if self.head is None:
             self.head = new_node
         
         current_node = self.head
-        while current_node:
+        while current_node.next:
             current_node = current_node.next
-        current_node = new_node
-            
-        return current_node.data
+        current_node.next = new_node
+        
     
     def print_linked_list(self): 
         """Print linked list."""
         
-        # if linked list is empty:
+        # check if list is empty:
         if self.head is None:
             raise Exception("List is empty!")
         
         current_node = self.head
         while current_node:
             print(current_node.data)
-        current_node = current_node.next
+            current_node = current_node.next
+
     
     def find_value(self, node_value):
         """Find specific value in linked list."""
     
-        # if liked list is empty
+        # check if list is empty:
         if self.head is None:
             raise Exception ("List is empty!")
             
@@ -59,22 +62,24 @@ class SinglyLinkedList(object):
             current_node = current_node.next
             
         return False
+
     
     def find_length(self):
         """Find out linked list lenght."""
         
-        # check if linked list is empty:
+        # check if list is empty:
         if self.head is None:
             raise Exception("List is empty!")
         
         current_node = self.head
         lllength = 0  
         while current_node:
-            lllength += 1 
-        current_node = current_node.next
+            lllength += 1
+            current_node = current_node.next
         
         return lllength
     
+
     def reassign_node_value(self, current_value, new_value):
         """Reassign new value to specific node."""
         
@@ -92,7 +97,7 @@ class SinglyLinkedList(object):
         return "Value could not be found"
     
   
-    def insert_new_node(self, target_node, new_node):
+    def insert_new_node_after(self, target_node, new_node):
         """Insert a new node after specific node."""
 
         # create new node:
@@ -105,7 +110,7 @@ class SinglyLinkedList(object):
         current_node = self.head
         while current_node:
                 # 1st. find the target node
-                if current_node.data == "target_node":
+                if current_node.data == target_node:
                     # 2nd. twitch a few pointers:
                     # the node which comes aftet the current_node
                     # will now come after the new_node instead: 
@@ -115,9 +120,8 @@ class SinglyLinkedList(object):
                     current_node.next = new_node
                 current_node = current_node.next 
                 
-                return "Target node could not be found!" 
-    
-    def insert_a_node_before(self, target_node, new_node):
+
+    def insert_new_node_before(self, target_node, new_node):
         """"Insert a new node before specific node."""
         
         # create new node:
@@ -132,9 +136,9 @@ class SinglyLinkedList(object):
             if current_node.next.data == target_node:
                 new_node.next = current_node.next
                 current_node.next = new_node
+                return # why do I need a return?
             current_node = current_node.next  
     
-        return "Target node was not found!"
 
     def remove_a_node(self, to_be_removed):
         
@@ -155,6 +159,7 @@ class SinglyLinkedList(object):
             
 
 class Node(object):
+    """A node in a linked list."""
     def __init__(self, data, next=None):
         self.data = data
         self.next = None
