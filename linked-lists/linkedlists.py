@@ -92,24 +92,49 @@ class SinglyLinkedList(object):
         return "Value could not be found"
     
   
-    def insert_a_node_after_target_node_method(self, target_node_value, new_node):
+    def insert_new_node(self, target_node, new_node):
+        """Insert a new node after specific node."""
+
+        # create new node:
         new_node = Node(new_node)
+        
+        # check if list is empty:
+        if self.head is None:
+                raise Exception("Linked list is empty!")
+                
         current_node = self.head
         while current_node:
-            if current_node.data == target_node_value:
-                new_node.next = current_node.next
-                current_node.next = new_node
-            current_node = current_node.next
+                # 1st. find the target node
+                if current_node.data == "target_node":
+                    # 2nd. twitch a few pointers:
+                    # the node which comes aftet the current_node
+                    # will now come after the new_node instead: 
+                    new_node.next = current_node.next 
+                    # then new_node will be the node which
+                    # comes after the current node
+                    current_node.next = new_node
+                current_node = current_node.next 
+                
+                return "Target node could not be found!" 
     
-    def insert_a_node_before(self, target_node_value, new_node):
+    def insert_a_node_before(self, target_node, new_node):
+        """"Insert a new node before specific node."""
+        
+        # create new node:
         new_node = Node(new_node)
+    
+        # check if list is empty:
+        if self.head is None:
+            raise Exception("Linked list is empty!")
+        
         current_node = self.head
         while current_node.next:
-            if current_node.next.data == target_node_value:
+            if current_node.next.data == target_node:
                 new_node.next = current_node.next
                 current_node.next = new_node
-                return
             current_node = current_node.next  
+    
+        return "Target node was not found!"
 
     def remove_a_node(self, to_be_removed):
         
@@ -121,8 +146,7 @@ class SinglyLinkedList(object):
         # is the head node:
         if self.head.data == to_be_removed:
             self.head = self.head.next 
-        
-        # otherwise:
+    
         current_node = self.head 
         while current_node.next:
             if current_node.next.data == to_be_removed:
@@ -130,14 +154,11 @@ class SinglyLinkedList(object):
             current_node = current_node.next 
             
 
-
 class Node(object):
     def __init__(self, data, next=None):
         self.data = data
         self.next = None
 
-#     def __repr__(self):
-#         return f"Node is {self.data}, next node is {self.next.data}" if self.next else None
 
 say_hi = SinglyLinkedList()
 first_node = Node("hello")
@@ -232,8 +253,8 @@ def insert_a_node_before(first_node, target_node_value, new_node):
             current_node.next = new_node
             return
         current_node = current_node.next  
-insert_a_node_before(first_node, "world", "beautiful")
-print_linked_list_function(first_node)
+# insert_a_node_before(first_node, "world", "beautiful")
+# print_linked_list_function(first_node)
 
 
 
