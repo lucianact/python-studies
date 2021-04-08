@@ -46,7 +46,7 @@ class SinglyLinkedList(object):
             current_node = current_node.next   
         return lllength
     
-    def insert_a_node_before_target_node_method(self, target_node_value, new_node):
+    def insert_a_node_after_target_node_method(self, target_node_value, new_node):
         new_node = Node(new_node)
         current_node = self.head
         while current_node:
@@ -136,7 +136,7 @@ def append_node_function(first_node, new_node):
 # print(append_node_function(first_node, "!"))
 # print_linked_list_function(first_node) # why?
 
-def insert_a_node_before_target_node_function(first_node, target_node_value, new_node):
+def insert_a_node_after_target_node_function(first_node, target_node_value, new_node):
         new_node = Node(new_node)
         current_node = first_node
         while current_node:
@@ -145,8 +145,8 @@ def insert_a_node_before_target_node_function(first_node, target_node_value, new
                 current_node.next = new_node
             current_node = current_node.next  
             # return f'{current_node.next.data}' # what's happening? 
-insert_a_node_before_target_node_function(first_node, "world" , "of love")
-print_linked_list_function(first_node)
+# insert_a_node_before_target_node_function(first_node, "world" , "of love")
+# print_linked_list_function(first_node)
 
 # class NoTailLinkedList(object):
 #     """Linked List using head only."""
