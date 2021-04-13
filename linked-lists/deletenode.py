@@ -64,6 +64,34 @@ def delete_a_node(node_to_delete):
     else:
         raise Exception("Error was found for this type of solution!")
 
+"""
+There are two potential side-effects:
+
+Any references to the input node have now effectively been reassigned 
+to its next node. In our example, we "deleted" the node assigned to the
+variable b, but in actuality we just gave it a new value (2) and a new next! 
+If we had another pointer to b somewhere else in our code and 
+we were assuming it still had its old value (8), that could cause bugs.
+
+If there are pointers to the input node's original next node,
+those pointers now point to a "dangling" node (a node that's no longer 
+reachable by walking down our list). In our example above, c is now dangling. 
+If we changed c, we'd never encounter that new value 
+by walking down our list from the head to the tail.
+
+Complexity
+O(1) time and O(1) space.
+
+What we wearned?
+My favorite part of this problem is how imperfect the solution is. 
+Because it modifies the list "in place" it can cause other parts of 
+the surrounding system to break. This is called a "side effect."
+In-place operations like this can save time and/or space, but they're risky.
+If you ever make in-place modifications in an interview, 
+make sure you tell your interviewer that in a real system you'd 
+carefully check for side effects in the rest of the code base.
+
+"""
 
 
     
