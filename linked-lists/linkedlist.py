@@ -1,3 +1,9 @@
+class Node(object):
+    """A node in a linked list."""
+    def __init__(self, data, next=None):
+        self.data = data
+        self.next = None
+
 class SinglyLinkedList(object):
     """A singly linked list."""
 
@@ -152,7 +158,7 @@ class SinglyLinkedList(object):
             current_node = current_node.next  
     
 
-    def remove_a_node(self, to_be_removed):
+    def remove_a_node(self, value_to_be_removed):
         
         # check if we have an empty linked list:
         if self.head is None:
@@ -160,23 +166,17 @@ class SinglyLinkedList(object):
 
         # check if the node to be removed
         # is the head node:
-        if self.head.data == to_be_removed:
+        if self.head.data == value_to_be_removed:
             self.head = self.head.next 
     
         current_node = self.head 
         while current_node.next:
-            if current_node.next.data == to_be_removed:
+            if current_node.next.data == value_to_be_removed:
                 current_node.next = current_node.next.next 
             current_node = current_node.next 
+        
+        return "Node could not be found!"
             
-
-class Node(object):
-    """A node in a linked list."""
-    def __init__(self, data, next=None):
-        self.data = data
-        self.next = None
-
-
 say_hi = SinglyLinkedList()
 first_node = Node("hello")
 second_node = Node("world")
