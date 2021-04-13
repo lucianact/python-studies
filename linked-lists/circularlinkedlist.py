@@ -74,6 +74,8 @@ class CircularLinkedList(object):
 
         # else:
         current_node = self.head
-        while current_node.next != self.head:
+        while current_node.next:
             print(current_node.data)
             current_node = current_node.next
+            if current_node == self.head:
+                break 
