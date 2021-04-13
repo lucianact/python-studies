@@ -53,13 +53,19 @@ class CircularLinkedList(object):
         
     
     def print_linked_list(self): 
-        """Print linked list."""
+        """Print a circular linked list."""
         
         # check if list is empty:
         if self.head is None:
             raise Exception("List is empty!")
         
+        # check if list has only one node:
+        if ((self.head.next == self.head) or 
+                (self.head.next == None)):
+            print(self.head.data)
+
+        # else:
         current_node = self.head
-        while current_node:
+        while current_node.next != self.head:
             print(current_node.data)
             current_node = current_node.next
