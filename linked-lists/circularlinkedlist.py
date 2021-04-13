@@ -37,7 +37,7 @@ class CircularLinkedList(object):
     
 
     def append_node(self, new_node):
-        """Append a new node."""
+        """Append a new node to a circular linked list."""
         
         # create a new node:
         new_node = Node(new_node)
