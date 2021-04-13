@@ -121,9 +121,11 @@ class SinglyLinkedList(object):
                 current_node = current_node.next 
                 
 
-    def insert_new_node_before(self, target_node, new_node):
+    def insert_new_node_before(self, target_value, new_node):
         """"Insert a new node before specific node."""
-        
+        import pdb
+        pdb.set_trace()
+
         # create new node:
         new_node = Node(new_node)
     
@@ -131,12 +133,22 @@ class SinglyLinkedList(object):
         if self.head is None:
             raise Exception("Linked list is empty!")
         
+        # check if head is the target value
+        if self.head.data == target_value:
+            new_node.next = self.head
+            self.head = new_node
+            return
+        
         current_node = self.head
         while current_node.next:
-            if current_node.next.data == target_node:
+            if current_node.next.data == target_value:
                 new_node.next = current_node.next
                 current_node.next = new_node
-                return # why do I need a return?
+                return
+                # it's necessary to insert a return statement 
+                # because after inserting a new node before 
+                # a target node/target value, the next node
+                # will be once again the same target node/value
             current_node = current_node.next  
     
 
