@@ -5,7 +5,7 @@ class Node(object):
         self.next = None
 
 class CircularLinkedList(object):
-    """A singly linked list."""
+    """A circular linked list."""
 
     def __init__(self, head=None):
         self.head = None
