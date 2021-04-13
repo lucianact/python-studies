@@ -92,13 +92,3 @@ make sure you tell your interviewer that in a real system you'd
 carefully check for side effects in the rest of the code base.
 
 """
-
-
-    
-
-
-
-  
-
-
-
