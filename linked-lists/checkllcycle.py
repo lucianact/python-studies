@@ -77,5 +77,3 @@ def contains_cycle(head_node):
 
 #     # Case: fast_runner hit the end of the list
 #     return False
-
-    
