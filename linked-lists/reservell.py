@@ -6,5 +6,3 @@ class LinkedListNode(object):
             self.next  = next
 
 # def reverse(head_of_list):
-    
- 
