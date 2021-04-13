@@ -173,3 +173,25 @@ def insert_a_node_before_target_node(head_node, target_value, new_node):
 
 insert_a_node_before_target_node(first_node, "universe", "beautiful")
 print_linked_list(first_node)
+
+def remove_a_node(head_node, value_to_be_removed):
+    
+    # check if we have an empty linked list:
+    if head_node is None:
+        raise Exception("List is empty!")
+
+    # check if the node to be removed
+    # is the head node:
+    if head_node.data == value_to_be_removed:
+        head_node = head_node.next 
+
+    current_node = head_node 
+    while current_node.next:
+        if current_node.next.data == value_to_be_removed:
+            current_node.next = current_node.next.next 
+        current_node = current_node.next 
+    
+    return "Node could not be found!"
+
+remove_a_node(first_node, "beautiful")
+print_linked_list(first_node)
