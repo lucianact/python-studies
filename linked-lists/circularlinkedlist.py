@@ -45,11 +45,14 @@ class CircularLinkedList(object):
         # check if list is empty:
         if self.head is None:
             self.head = new_node
+            new_node.next = self.head
         
+        # else:
         current_node = self.head
-        while current_node.next:
+        while current_node.next != self.head:
             current_node = current_node.next
         current_node.next = new_node
+        new_node.next = self.head 
         
     
     def print_linked_list(self): 
