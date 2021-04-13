@@ -48,6 +48,10 @@ class CircularLinkedList(object):
             new_node.next = self.head
         
         # else:
+        # when we add a new head to our linked list, 
+        # besides updating the head node and the current 
+        # .next head node pointer, we also need to 
+        # update the last node .next pointer:
         current_node = self.head
         while current_node.next != self.head:
             current_node = current_node.next
