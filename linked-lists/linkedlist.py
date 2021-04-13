@@ -19,7 +19,7 @@ class SinglyLinkedList(object):
 
         # check if list empty:
         if self.head is None:
-            new_node = self.head
+            self.head = new_node
 
         new_node.next = self.head
         self.head = new_node
