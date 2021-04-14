@@ -79,3 +79,37 @@ class CircularLinkedList(object):
             current_node = current_node.next
             if current_node == self.head:
                 break 
+    
+    def remove_a_node(self, target_node_value):
+        """Remove a node from a circular linked list."""
+
+        # when we remove a node, we need to keep in minda
+        # that you might be removing the first node,
+        # the last node or any node in between. 
+
+        # check if list is empty:
+        if self.head is None:
+            raise Exception("List is empty!")
+        
+        current_node = self.head
+
+        # if we remove the head of a circular ll :
+        if self.head.data == target_node_value:
+            while current_node.next != self.head:
+                current_node = current_node.next 
+            current_node.next = self.head.next
+            self.head = self.head.next 
+            return
+        
+        # if we remove the "tail" of a circular ll
+        # or any nodes in between:
+        previous = None 
+        while current_node.next != self.head:
+            previous = current_node
+            current_node = current_node.next
+            if current_node.data == target_node_value:
+                previous.next = current_node.next
+                current_node = current_node.next
+                return
+        
+        return "Couldn't find node with that value"
