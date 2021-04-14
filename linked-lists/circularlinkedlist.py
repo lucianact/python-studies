@@ -172,12 +172,3 @@ class CircularLinkedList(object):
             current_node = current_node.next
         # now current node is D
         split_circularll.append_node(current_node.data)
-
-
-
-     
-            
-
-
-
-
