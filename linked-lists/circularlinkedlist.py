@@ -113,3 +113,71 @@ class CircularLinkedList(object):
                 return
         
         return "Couldn't find node with that value"
+    
+    def __len__(self):
+        """Find the lenght of a circular linked list."""
+
+        current_node = self.head
+        lllength = 0
+        while current_node:
+            lllength += 1
+            current_node = current_node.next 
+            if current_node == self.head:
+                break
+            return lllength
+
+    
+    def split_circular_ll(self):
+        """Split a circular linked list in half."""
+
+        # to find the half of a circular linked liked, 
+        # we first need to know the length of this ll.
+        size = len(self)
+
+        # now check for edge cases:
+        if size == 0:
+            return None
+        
+        if size == 1:
+            return self.head
+
+        # now that we know the ll length, we can traverse 
+        # the list again to find where to split it:
+        mid = size//2
+        
+        # algo practice:
+        # suppose I have the following ll:
+        # A -> B -> C -> D
+        # okay;
+        # if I want to have two ll:
+        # A -> B and C -> D
+        # it's like I want to "remove" C
+        # so I need to point B's pointer to back to A
+        # and assign that node "space" to be
+        # now "taken" by A
+        current_node = self.head
+        previous_node = None
+        count = 0
+        while current_node and count < mid:
+            count += 1 
+            previous_node = current_node
+            current_node = current_node.next 
+        previous_node.next = self.head 
+
+        # now current is C 
+        # and we need to create a new circular ll
+        split_circularll = CircularLinkedList()
+        while current_node.next != self.head:
+            split_circularll.append_node(current_node.data)
+            current_node = current_node.next
+        # now current node is D
+        split_circularll.append_node(current_node.data)
+
+
+
+     
+            
+
+
+
+
