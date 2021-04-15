@@ -227,6 +227,3 @@ class CircularLinkedList(object):
             if current_node.next == input_list.head:
                 True
         return False 
-
-
-
