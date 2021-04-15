@@ -204,4 +204,15 @@ class CircularLinkedList(object):
         return "Couldn't find node!"
 
     
-    # def josephus_circle(self, step):
+    def josephus_circle(self, step):
+        """The Josephus Problem."""
+
+        current_node = self.head
+    
+        while len(self) > 1:
+            count = 1
+            while count != step:
+                current_node = current_node.node
+                count += 1
+            self.remove_node(current_node)
+            current_node = current_node.next 
