@@ -30,9 +30,3 @@ class Node(object):
 # then change next of current pointers. 
 
 def swap_node(self, value_one, value_two):
-
-    
-
-
-
-
