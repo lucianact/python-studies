@@ -216,3 +216,17 @@ class CircularLinkedList(object):
                 count += 1
             self.remove_node(current_node)
             current_node = current_node.next 
+        
+    def is_circular_linked_list(self, input_list):
+        """Check if linked list is circular."""
+
+        current_node = input_list.head
+
+        while current_node.next:
+            current_nodo = currrent_node.next
+            if current_node.next == input_list.head:
+                True
+        return False 
+
+
+
