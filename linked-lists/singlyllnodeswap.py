@@ -30,3 +30,43 @@ class Node(object):
 # then change next of current pointers. 
 
 def swap_node(self, value_one, value_two):
+
+    # Nothing to do if x and y are same
+    if value_one == value_two:
+        return "Values cannot be the same"
+
+    current_one = self.head
+    previous_one = None 
+
+    current_two = self.head
+    previous_two = None
+
+    while current_one.data != value_one:
+        previous_one: current_one
+        current_one = current_one.next
+        if current_one is None:
+            return "Value could not be found"
+    # now current_one is value_one
+
+    while current_two.data != value_one:
+        previous_two: current_two
+        current_two = current_two.next
+        if current_two is None:
+            return "Value could not be found"
+    # now current_two is value_two
+
+    # suppose we have:
+    # current_one = B
+    # previous_one = A
+    # current_two = C
+    # previous_two = B
+    # A -> B -> C -> D
+
+    # A -> C
+    previous_one.next = current_two
+    # C -> B
+    current_two.next = previous_two
+    # now we have: A -> C -> B 
+    # but B still poiting to C:
+    previous_two.next = current_two.next 
+ 
