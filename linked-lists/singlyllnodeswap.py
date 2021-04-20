@@ -68,5 +68,4 @@ def swap_node(self, value_one, value_two):
     current_two.next = previous_two
     # now we have: A -> C -> B 
     # but B still poiting to C:
-    previous_two.next = current_two.next 
- 
+    previous_two.next = current_two.next
