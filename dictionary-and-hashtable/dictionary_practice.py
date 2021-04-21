@@ -49,7 +49,7 @@ def can_two_movies_fill_flight(movie_lengths, flight_length):
 
     return False
 
-print(can_two_movies_fill_flight(600, [300, 400, 500, 600, 200]))
+print(can_two_movies_fill_flight([300, 400, 500, 600, 200], 600))
 # but time cost would be not great in this case! O(n*n)
 
 # here's a better way of tackling it with O(n)
@@ -66,3 +66,21 @@ def can_two_movies_fill_flight_2(movie_lengths, flight_length):
 
     # We never found a match, so return False       
     return False
+
+"""    
+Write an efficient function that checks whether any permutation of
+an input string is a palindrome.
+You can assume the input string only contains lowercase letters.
+
+"""
+def has_palindrome_permutation(the_string):
+    """Check if ANY permutation of the input is a palindrome."""
+
+    # suppose we have this string:
+    # civic 
+    # one of its permutation is also civic
+
+    # how can we check strings permutations?
+    print(the_string[-1])
+
+has_palindrome_permutation("luci")
