@@ -41,3 +41,20 @@ print(g)
 h = [1, 2, 3]
 i = bytes(h)
 print(i)
+
+"""String format"""
+
+# old style
+name = "luci"
+print("Hey %s , hope you're doing wel" % name)
+
+# "new" style
+print("Hello {}, sup?".format(name))
+
+# f'strings (python3)
+print(f"Hey, {name}! I like this!")
+
+# template strings:
+from string import Template
+greet = Template('Hi, $name')
+print(greet.substitute(name=name))
