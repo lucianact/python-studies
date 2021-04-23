@@ -23,3 +23,5 @@ for n, day in enumerate(week, 1):
     print(n, day)
 
 # zip()
+for day in zip(week, semana):
+    print(day)
