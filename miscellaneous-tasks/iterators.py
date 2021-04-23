@@ -23,5 +23,7 @@ for n, day in enumerate(week, 1):
     print(n, day)
 
 # zip()
-for day in zip(week, semana):
-    print(day)
+for n, day in enumerate(zip(week, semana), 1):
+    print(n, day)
+    # remember that day is a tuple!
+    print(n, day[0] + " is " + day[1] + " in portuguese") 
