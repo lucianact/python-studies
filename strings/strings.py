@@ -42,6 +42,7 @@ h = [1, 2, 3]
 i = bytes(h)
 print(i)
 
+
 """String format"""
 
 # old style
@@ -58,6 +59,7 @@ print(f"Hey, {name}! I like this!")
 from string import Template
 greet = Template('Hi, $name')
 print(greet.substitute(name=name))
+
 
 """Split method""" 
 
@@ -76,3 +78,25 @@ three = color.split("and", 0)
 print(three)
 
 
+"""Regular Expressions"""
+
+# Regular Expression or RegEx is a sequence of characters that forms a
+# search pattern. RegEx is used to search for and replace specific
+# patterns. Python provides a built-in module, re, which supports regular 
+# expressions.
+
+import re
+
+# re.finall()
+phrase = "I have a white cat, she has a blue cat"
+print(re.findall("cat", phrase))
+
+# re.search()
+# start() -> the start of the index 
+print(re.search("cat", phrase).start())
+
+#re.split()
+print(re.split(",", phrase))
+
+#re.sub()
+print(re.sub("cat", "necklace", phrase))
