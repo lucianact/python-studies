@@ -13,8 +13,13 @@ with open("textfile.txt", "r") as file:
     for line in iter(file.readline, ''):
         print(line)
 
-    
 # range(len)
-
+for n in range(len(week)):
+    print(n+1, week[n])
+print("---------------")
+ 
 # enumerate() 
+for n, day in enumerate(week, 1):
+    print(n, day)
+
 # zip()
