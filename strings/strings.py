@@ -61,6 +61,18 @@ print(greet.substitute(name=name))
 
 """Split method""" 
 
-color = "blue"
-split_color = color.split
-print(split_color)
+color = "blue and red"
+
+# without parameters
+one = color.split()
+print(one)
+
+# with a separator parameter
+two = color.split("and")
+print(two)
+
+# with a maxsplit parameter:
+three = color.split("and", 0)
+print(three)
+
+
