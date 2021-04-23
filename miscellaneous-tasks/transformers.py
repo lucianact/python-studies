@@ -19,3 +19,21 @@ def are_lowercase(y):
 chars = "AURHfoenvb"
 lower = list(filter(are_lowercase, chars))
 print(lower)
+
+# map
+def square(z):
+    return z * z 
+
+squares = list(map(square, nums))
+print(squares)
+
+def letter_grade(w):
+    if w >= 90:
+        return "A"
+    elif w < 90 and w >= 80:
+        return "B"
+    return "C"
+
+grades = (90, 60, 70, 80)
+grades_converted = list(map(letter_grade, grades))
+print(grades_converted)
