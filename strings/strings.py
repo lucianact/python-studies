@@ -58,3 +58,9 @@ print(f"Hey, {name}! I like this!")
 from string import Template
 greet = Template('Hi, $name')
 print(greet.substitute(name=name))
+
+"""Split method""" 
+
+color = "blue"
+split_color = color.split
+print(split_color)
