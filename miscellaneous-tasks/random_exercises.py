@@ -38,3 +38,37 @@ while i < 6:
     if i == 3:
         continue
     print(i)
+
+# 3 
+# How would you sort a dictionary in Python?
+
+# dict = {"key" : "value"}
+# unordered 
+# dict.sorted()
+# ->  sorted(dict)
+
+# should I modify the dict or
+# just return its values, keys or items sorted
+# with a different type of data 
+dic = {"b" : "nico", "a" : "luci"}
+sorted_dict = sorted(dic.items()) 
+print(sorted_dict)
+print(dic)
+# list of tuples
+# tuple[0] -> key
+# tuple[1] -> value
+new_dict = {} 
+for pair in sorted_dict:
+    new_dict[pair[0]] = pair[1]
+
+print(new_dict)
+# does that mean you cannot sorte a 
+# dict in place? 
+
+
+# should I sorted dict its values or keys? 
+# => keys 
+# loop through the keys of the dict
+# check all the keys 
+# to be able to sort the key-value pair
+# This is not a good idea
