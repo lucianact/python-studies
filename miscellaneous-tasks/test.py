@@ -52,7 +52,7 @@ def get_applicant_and_location(userInput):
         # print(response)
         data = response['data']
         # print(data)
-        
+
         # filtering and printing the output:
         food_trucks = []
 
